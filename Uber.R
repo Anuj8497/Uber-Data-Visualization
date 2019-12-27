@@ -63,7 +63,7 @@ data_2014$second <- as.factor(second(hms(data_2014$Time)))
 
 hour_data <- data_2014 %>%group_by(hour) %>%summarize(frequency = n())
 help("ggplot")
-ggplot(data = hour_data, aes(hour, Total))+ geom_bar(stat = "identity",fill = "steelblue", color = "red")+ggtitle("no of trips by hour")+scale_y_continuous(labels = comma) 
+ggplot(data = hour_data, aes(hour, frequency))+ geom_bar(stat = "identity",fill = "steelblue", color = "red")+ggtitle("no of trips by hour")+scale_y_continuous(labels = comma) 
 
 # no finding the number of trips by month and hours
 new_data <- data_2014 %>%group_by(month,hour) %>%summarise(frequency = n())
